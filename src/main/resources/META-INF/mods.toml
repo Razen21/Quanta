@@ -1,0 +1,38 @@
+
+modLoader="javafml" #mandatory
+
+loaderVersion="[43,)" #mandatory
+
+license="All rights reserved"
+
+[[mods]] #mandatory
+
+modId="quanta" #mandatory
+
+version="${file.jarVersion}" #mandatory
+
+displayName="Quanta" #mandatory
+
+logoFile="examplemod.png" #optional
+
+credits="Razen" #optional
+
+authors="Razen" #optional
+
+description=''' Quanta ''' #mandatory
+
+[[dependencies.examplemod]] #optional
+
+    modId="forge" #mandatory
+    mandatory=true #mandatory
+    versionRange="[43,)" #mandatory
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.examplemod]]
+
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.19.2,1.20)"
+    ordering="NONE"
+    side="BOTH"
