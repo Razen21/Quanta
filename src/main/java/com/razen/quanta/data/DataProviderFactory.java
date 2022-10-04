@@ -1,5 +1,6 @@
 package com.razen.quanta.data;
 
+import com.razen.quanta.data.providers.QuantaLanguageProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -15,15 +16,15 @@ public class DataProviderFactory {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
         generator = event.getGenerator();
-        configureServerProviders();
-        configureClientProviders();
+        configureServerProviders(event);
+        configureClientProviders(event);
     }
 
-    private static void configureClientProviders() {
-
+    private static void configureClientProviders(GatherDataEvent event) {
+        generator.addProvider(event.includeClient(), new QuantaLanguageProvider(generator, "en_us"));
     }
 
-    private static void configureServerProviders() {
+    private static void configureServerProviders(GatherDataEvent event) {
 
     }
 }

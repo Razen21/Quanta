@@ -32,22 +32,17 @@ public class Quanta
     public static final String MODID = "quanta";
 
     private static final Logger LOGGER = LogUtils.getLogger();
-
-    public static final CreativeModeTab ITEM_GROUP = new QuantaTab(MODID, new ItemStack(Items.DIRT));
+    public static final CreativeModeTab ITEM_GROUP = QuantaTab.DEFUALT;
 
     public Quanta()
     {
         MinecraftForge.EVENT_BUS.register(this);
 
         CommonSetup.setup();
-
-        init();
-
-
-
+        configureModEventBus();
     }
 
-    private void init() {
+    private void configureModEventBus() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(CommonSetup::init);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> bus.addListener(ClientSetup::init));
