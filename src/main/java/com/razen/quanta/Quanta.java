@@ -39,6 +39,7 @@ public class Quanta
         MinecraftForge.EVENT_BUS.register(this);
 
         CommonSetup.setup();
+        QuantaRegistry.registerDeferredRegistries();
         configureModEventBus();
     }
 

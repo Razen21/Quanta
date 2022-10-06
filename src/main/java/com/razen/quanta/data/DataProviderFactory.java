@@ -1,5 +1,7 @@
 package com.razen.quanta.data;
 
+import com.razen.quanta.data.providers.QuantaBlockStateProvider;
+import com.razen.quanta.data.providers.QuantaItemModelProvider;
 import com.razen.quanta.data.providers.QuantaLanguageProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -22,6 +24,8 @@ public class DataProviderFactory {
 
     private static void configureClientProviders(GatherDataEvent event) {
         generator.addProvider(event.includeClient(), new QuantaLanguageProvider(generator, "en_us"));
+        generator.addProvider(event.includeClient(), new QuantaBlockStateProvider(generator, event.getExistingFileHelper()));
+        generator.addProvider(event.includeClient(), new QuantaItemModelProvider(generator, event.getExistingFileHelper()));
     }
 
     private static void configureServerProviders(GatherDataEvent event) {

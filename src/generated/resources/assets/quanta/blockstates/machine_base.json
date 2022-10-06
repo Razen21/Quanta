@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "quanta:block/machine_base"
+    }
+  }
+}
